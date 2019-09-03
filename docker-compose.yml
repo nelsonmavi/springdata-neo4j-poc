@@ -1,0 +1,15 @@
+version: '3'
+services:
+  api:
+    image: nelsonmavi/springdata-neo4j-poc
+    ports:
+      - 8080:8080
+    depends_on:
+      - neo4j
+  neo4j:
+    image: neo4j:latest
+    ports:
+      - 7474:7474
+      - 7687:7687
+    volumes:
+      - $NEO4J_PATH/data:/data
